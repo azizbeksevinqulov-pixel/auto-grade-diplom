@@ -1,6 +1,9 @@
 from django.urls import path
-from core.views import test_page
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("DIPLOM LOYIHA ISHLAYAPTI 🚀")
 
 urlpatterns = [
-    path("", test_page),
+    path("", home),
 ]
