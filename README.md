@@ -1,0 +1,1 @@
+# Auto Grade Diplom Loyihasi
