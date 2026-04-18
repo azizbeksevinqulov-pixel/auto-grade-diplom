@@ -3,6 +3,8 @@ from django.urls import path
 from core.views import *
 
 urlpatterns = [
+    path("", login_view),  # 👈 ENG MUHIM (root qo‘shildi)
+
     path("admin/", admin.site.urls),
 
     path("login/", login_view),
