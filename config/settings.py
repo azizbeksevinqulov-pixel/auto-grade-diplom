@@ -80,7 +80,7 @@ TEMPLATES = [
 # ===================== STATIC FILES =====================
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # ===================== AUTH REDIRECT =====================
 LOGIN_URL = "/login/"
