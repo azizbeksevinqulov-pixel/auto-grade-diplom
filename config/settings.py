@@ -3,18 +3,28 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# ... (oldingi kodlar qoladi)
 
-# ===================== SECURITY =====================
-SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key")
+# Whitenoise (static fayllar uchun)
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-DEBUG = False
-
-ALLOWED_HOSTS = ["*"]
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://*.railway.app"
+# Middleware ga Whitenoise qo‘shing (SecurityMiddleware dan keyin birinchi bo‘lib)
+MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",   # ← Shu qatorni qo‘shing
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    # ... qolgan middleware lar
 ]
 
+# Production uchun
+DEBUG = False
+ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["https://*.railway.app"]
+
+# Portni to‘g‘ri o‘qish
+PORT = os.environ.get("PORT", "8000")
 
 # ===================== APPS =====================
 INSTALLED_APPS = [
