@@ -1,3 +1,6 @@
 Django==5.0
 gunicorn
 scikit-learn
+sentence-transformers
+whitenoise
+psycopg2-binary
